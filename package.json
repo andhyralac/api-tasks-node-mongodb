@@ -2,10 +2,13 @@
   "name": "api-task-mongo",
   "version": "1.0.0",
   "description": "api rest from task with node.js and mongodb",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon src/app.js",
-    "start": "node src/app.js"
+    "dev": "nodemon --legacy-watch main",
+    "start": "node src/app.js",
+    "docker-compose-down": "docker-compose './docker-compose.yml' down",
+    "docker-compose-up:dev": "docker-compose './docker-compose.yml' up -d --build app",
+    "docker:dev": "npm run docker-compose-down; npm run docker-compose-up:dev; docker-compose logs -f app"
   },
   "author": "Andhy Ralac",
   "license": "ISC",
