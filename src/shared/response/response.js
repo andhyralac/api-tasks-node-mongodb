@@ -52,10 +52,10 @@ const Forbidden = (res = response, data) => {
 
 
 const Error = (res = response, data) => {
+    console.error(data);
     return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
         status: HttpStatus.INTERNAL_SERVER_ERROR,
         statusMsg: "Internal server error",
-        error: data,
     });
 }
 
