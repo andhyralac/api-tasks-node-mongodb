@@ -3,6 +3,7 @@ const { response } = require('express')
 const HttpStatus = {
     OK: 200,
     CREATE: 201,
+    BAD_REQUEST: 400,
     NOT_FOUND: 404,
     UNAUTHORIZED: 401,
     FORBIDDEN: 403,
@@ -60,11 +61,22 @@ const Error = (res = response, data) => {
 }
 
 
+const BadRequest = (res = response, data) => {
+    console.error(data);
+    return res.status(HttpStatus.BAD_REQUEST).json({
+        status: HttpStatus.BAD_REQUEST,
+        statusMsg: "Bad Request",
+        error: data
+    });
+}
+
+
 module.exports = {
     Ok,
     Create,
     NotFound,
     Unauthorized,
     Forbidden,
-    Error
+    Error,
+    BadRequest
 }
