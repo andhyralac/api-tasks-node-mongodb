@@ -6,7 +6,7 @@ have created and you will not be able to see the other user tasks
 You must create the .env file for the environment variables, to be able to run it on your local 
 machine without using docker
 
-| Plugin | README |
+| VARIABLE | DESCRIPTION |
 | ------ | ------ |
 | PORT | the http server port |
 | MONGO_URI | the mongodb database uri |
