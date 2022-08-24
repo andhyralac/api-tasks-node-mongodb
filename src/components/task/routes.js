@@ -3,12 +3,13 @@ const router = Router()
 
 const taskController = require('./controller')
 const { checkAuth } = require('../../shared/middleware/auth')
-
+const taskValidators = require('./validator/task.validators')
 
 
 //ruta post para la creacion de tarea
 router.post('/', [
-    checkAuth
+    checkAuth,
+    taskValidators.validateTaskObjectDataCreate
 ],taskController.createTask)
 
 
@@ -16,7 +17,8 @@ router.post('/', [
 
 // ruta put para actualizar tarea
 router.put('/:id', [
-    checkAuth
+    checkAuth,
+    taskValidators.validateTaskObjectDataUpdate
 ],taskController.updateTask)
 
 
@@ -30,7 +32,8 @@ router.get('/', [
 
 // ruta para eliminar tarea
 router.delete('/:taskId', [
-    checkAuth
+    checkAuth,
+    taskValidators.validateTaskObjectDataDelete
 ],taskController.deleteTask)
 
 
